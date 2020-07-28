@@ -15,20 +15,15 @@
  */
 #include QMK_KEYBOARD_H
 
-enum layer_names {
-    _BASE = 0,
-    _FN
-};
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_4x4_encoders(
+    [0] = LAYOUT_4x4_encoders(
         KC_MUTE,                   KC_MPLY,
         KC_PMNS, KC_P7,   KC_P8,   KC_P9,
         KC_PPLS, KC_P4,   KC_P5,   KC_P6,
         KC_BSPC, KC_P1,   KC_P2,   KC_P3,
-        KC_PENT, MO(_FN), KC_P0,   KC_PDOT
+        KC_PENT, MO(1), KC_P0,   KC_PDOT
     ),
-    [_FN] = LAYOUT_4x4_encoders(
+    [1] = LAYOUT_4x4_encoders(
         _______,                   _______,
         KC_PSLS, KC_F21,  KC_F22,  KC_F23,
         KC_PAST, KC_F18,  KC_F19,  KC_F20,
@@ -62,10 +57,10 @@ static void render_status(void) {
     oled_write_P(PSTR("Layer: "), false);
 
     switch (get_highest_layer(layer_state)) {
-        case _BASE:
+        case 0:
             oled_write_P(PSTR("Numpad\n"), false);
             break;
-        case _FN:
+        case 1:
             oled_write_P(PSTR("Macropad\n"), false);
             break;
         default:
