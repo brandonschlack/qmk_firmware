@@ -144,6 +144,25 @@ void matrix_scan_cmd_tab(void);
 #define MC_WH_D   KC_WH_U              // Mouse Wheel Down
 #define MC_WH_L   KC_WH_R              // Mouse Wheel Left
 #define MC_WH_R   KC_WH_L              // Mouse Wheel Right
+// Reeder Shortcuts
+#define RD_INXT   KC_J
+#define RD_IPRV   KC_K
+#define RD_SNXT   KC_N
+#define RD_SPRV   KC_P
+#define RD_OPEN   KC_H
+#define RD_CLR    KC_L
+#define RD_STAR   KC_S
+#define RD_SYNC   KC_R
+// Mimestream (Mail) Shortcuts
+#define ML_INXT   KC_UP
+#define ML_IPRV   KC_DOWN
+#define ML_MBNX   LOPT(LCMD(KC_RBRC))
+#define ML_MBPV   LOPT(LCMD(KC_LBRC))
+#define ML_ARCV   KC_BSPC
+#define ML_DELT   LCMD(KC_BSPC)
+#define ML_STAR   LSFT(LCMD(KC_L))
+#define ML_SRCH   LOPT(LCMD(KC_F))
+#define ML_FLTR   LOPT(LCMD(KC_L))
 
 // RGB Theme
 #define RGB_THM   RGB_THEME_FORWARD    // Cycle next RGB_THEME
