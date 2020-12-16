@@ -6,7 +6,7 @@ on:
     - master
 
 jobs:
-  generate:
+  format:
     runs-on: ubuntu-latest
     container: qmkfm/base_container
 
@@ -22,13 +22,14 @@ jobs:
 
     - name: Format files
       run: |
-        bin/qmk cformat
+        bin/qmk cformat -a
         bin/qmk pyformat
         bin/qmk fileformat
 
     - name: Commit files
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: "Format code according to conventions for ${GITHUB_SHA}"
+        commit_message: Format code according to conventions for $GITHUB_SHA
         commit_user_name: QMK Bot
         commit_user_email: hello@qmk.fm
+        commit_author: QMK Bot <hello@qmk.fm>
